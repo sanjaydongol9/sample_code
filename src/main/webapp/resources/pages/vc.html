@@ -1,0 +1,50 @@
+<div class="">
+    <form>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input type="text" class="form-control"
+                               placeholder="Search User" ng-model="searchFilter">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <a href="#addUser" class="btn btn-primary">Add User</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="table table-border table-hover">
+        <thead>
+        <tr>
+            <td>UserName</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+            <td>Role</td>
+            <td>update</td>
+            <td>delete</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat ="user in users | filter:searchFilter">
+            <td> {{ user.username }}</td>
+            <td> {{ user.email }}</td>
+            <td> {{ user.phone.areaCode }}-{{ user.phone.prefixValue }}-{{ user.phone.number }}</td>
+            <td> {{ user.role }}</td>
+            <td><button class="btn btn-primary" ng-click ="updateUser('md',user)"> Update </button> </td>
+            <td><button class="btn btn-danger"
+                        ng-click="deleteUser(user)">Delete</button></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

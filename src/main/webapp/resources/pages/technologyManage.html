@@ -1,0 +1,43 @@
+<div class="">
+    
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input type="text" class="form-control"
+                               placeholder="Search Technology" ng-model="searchFilter">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <a href="#addTechnology" class="btn btn-primary">Add Technology</a>
+                </div>
+            </div>
+        </div>
+  
+    <table class="table table-border table-hover">
+        <thead>
+      
+        <tr>
+            <td>Name</td>
+            <td>Flag</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat ="tech in technology | filter:searchFilter">
+            <td> {{ tech.name }}</td>
+            <td> {{ tech.flag }}</td>
+        
+
+        </tr>
+     
+        </tbody>
+    </table>
+
+
+
+</div>

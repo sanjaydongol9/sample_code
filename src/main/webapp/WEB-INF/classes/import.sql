@@ -1,0 +1,1 @@
+INSERT INTO users (id, createdDate, email, first_name, last_name, middle_name, updatedDate, enable, username,password, role, address_id, phone_id, gender) VALUES (1, '2016-02-22 00:00:00', 'admin@yopmail.com', 'Admin', 'Nimda', 'B', NULL, true, 'madmin','$2a$10$COS90HJLx251atEWVoT04uCr26Auvd63.hJRPfmcgsS0FRYLdhIku', 'ROLE_MASTERADMIN', NULL, NULL, 'm');

@@ -1,0 +1,134 @@
+<div ng-controller="BackgroundCheckerController">
+
+	<div class="modal-header">
+		<h3 class="modal-title">Update Candidate</h3>
+	</div>
+	<div class="modal-body">
+		<form method="post" name="candidateForm">
+			<uib-alert ng-show="success" type="success"
+				close="closeSuccessAlert()">Account created
+			successfully. Your account is under review and will be approved by
+			Admin soon.</uib-alert>
+
+			<uib-alert ng-show="error" type="danger" close="closeErrorAlert()">{{errorMessage}}</uib-alert>
+
+			<div class="form-group"
+				ng-class="{ 'has-error' : candidateForm.firstName.$error.required && !candidateForm.firstName.$pristine }">
+				<label for="firstName">First Name</label> <input type="text"
+					class="form-control" name="firstName"
+					ng-model="candidate.firstName" required />
+				<p
+					ng-show="candidateForm.firstName.$error.required && !candidateForm.firstName.$pristine"
+					class="help-block">First name is required</p>
+			</div>
+
+			<div class="form-group">
+				<label for="middleName">Middle Name</label> <input type="text"
+					class="form-control" ng-model="candidate.middleName" />
+			</div>
+
+			<div class="form-group"
+				ng-class="{ 'has-error' : candidateForm.lastName.$error.required && !candidateForm.lastName.$pristine }">
+				<label for="lastName">Last Name</label> <input type="text"
+					class="form-control" name="lastName" ng-model="candidate.lastName"
+					required />
+				<p
+					ng-show="candidateForm.lastName.$error.required && !candidateForm.lastName.$pristine"
+					class="help-block">Last name is required.</p>
+			</div>
+
+			<div class="form-group"
+				ng-class="{ 'has-error' : candidateForm.gender.$error.required && !candidateForm.gender.$pristine }">
+				<label for="gender">Gender</label> <select class="form-control"
+					ng-model="candidate.gender" required>
+					<option value="" ng-selected="selected">Choose Gender</option>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+
+			<!--////////////////////////// technology ////////////////////////////////////// -->
+
+			<div class="form-group"
+				ng-class="{ 'has-error' : candidateForm.phoneNumber.$error.required && !candidateForm.phoneNumber.$pristine }">
+				<label for="phoneNumber">Phone Number</label>
+				<div>
+					<div class="col-sm-4">
+						<input type="text" maxlength="3" class="form-control"
+							ng-model="candidate.phone.areaCode" placeholder="">
+
+					</div>
+					<div class="col-sm-4">
+						<input type="text" maxlength="3" class="form-control"
+							ng-model="candidate.phone.prefixValue" placeholder="">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" maxlength="4" class="form-control"
+							ng-model="candidate.phone.number" placeholder="">
+					</div>
+				</div>
+				<p
+					ng-show="candidateForm.phoneNumber.$error.required && !candidateForm.phoneNumber.$pristine"
+					class="help-block">Phone Number is required.</p>
+			</div>
+
+			<!-- <div class="form-group" ng-class="{ 'has-error' : candidateForm.role.$error.required && !candidateForm.role.$pristine }">
+                    <label for="role">Role</label>
+                    <select class ="form-control" ng-model="user.role" ng-options ="role for role in roles" required>
+                        <option value="" ng-selected="selected">Choose  Role</option>
+                        <option>{{ role }}</option>
+                    </select>
+                    <p ng-show="userForm.role.$error.required && !userForm.role.$pristine" class="help-block">Role is required.</p>
+                </div> -->
+
+
+
+
+			<div class="form-group"
+				ng-class="{ 'has-error' : candidateForm.email.$error.required && !candidateForm.email.$pristine,
+							'has-error' :!candidateForm.email.$error.required && candidateForm.email.$error.email && !candidateForm.email.$pristine}">
+				<label for="email">Email</label> <input type="email"
+					class="form-control" name="email" ng-model="candidate.email"
+					required />
+				<p
+					ng-show="candidateForm.email.$invalid && !candidateForm.email.$pristine"
+					class="help-block">Enter a valid email</p>
+
+				<p
+					ng-show="candidateForm.email.$error.required && !candidateForm.email.$pristine"
+					class="help-block">Email is required</p>
+				<p
+					ng-show="!candidateForm.email.$error.required && candidateForm.email.$error.email && !candidateForm.email.$pristine"
+					class="help-block">Enter a valid email</p>
+			</div>
+
+			<div class="form-group"
+				ng-class="{ 'has-error' : candidateForm.skypeId.$error.required && !candidateForm.skypeId.$pristine }">
+				<label for="skypeId">Last Name</label> <input type="text"
+					class="form-control" name="skypeId" ng-model="candidate.skypeId"
+					required />
+				<p
+					ng-show="candidateForm.skypeId.$error.required && !candidateForm.skypeId.$pristine"
+					class="help-block">Skype Id name is required.</p>
+
+			</div>
+			<!--////////////////////////////// Address ////////////////////////////////  -->
+
+			<!--/////////////////////////////// Resume ////////////////////////////////  -->
+
+
+			<!--  <div class="form-group" ng-class="{ 'has-error' :cndidateForm.username.$error.required && candidateForm.username.$dirty,
+								'has-error' : !candidateForm.username.$error.required && (candidateForm.username.$error.minlength || candidateForm.username.$error.maxlength) && candidateForm.username.$dirty}">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" ng-model="user.username" ng-minlength="5" ng-maxlength="15" required  />
+                    <p ng-show="userForm.username.$error.required && userForm.username.$dirty">Username is required</p>
+                    <p ng-show="!userForm.username.$error.required && (userForm.username.$error.minlength || userForm.username.$error.maxlength) && userForm.username.$dirty">Username must be between 5 and 15</p>
+                </div> -->
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" type="button"
+			ng-click="editCandidate(candidate); ok()">Update and Close</button>
+		<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+	</div>
+
+</div>

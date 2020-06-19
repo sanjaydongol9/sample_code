@@ -1,0 +1,53 @@
+<div class="">
+    <form>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input type="text" class="form-control"
+                               placeholder="Search Proxy" ng-model="searchFilter">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                   
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="table table-border table-hover">
+        <thead>
+        
+        <tr>
+            <td>UserName</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+            <td>Technology</td>
+                        <td>update</td>
+            <td>delete</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat ="proxy in proxies | filter:searchFilter">
+            <td> {{ proxy.firstName }}</td>
+            <td> {{ proxy.email }}</td>
+            <td> {{ proxy.phone.areaCode}}-{{ proxy.phone.number}}-{{ proxy.phone.prefixValue}}</td>
+            <td> {{ proxy.technology.name }}</td>
+            <td> <button class="btn btn-default" ng-click="updateProxy('md',proxy)">update</button> </td>
+            <td><button class="btn btn-danger"
+                        ng-click="deleteProxy(proxy)">Delete</button></td>
+
+
+        </tr>
+      
+        </tbody>
+    </table>
+</div>
+</br>
+</br>
+ <a href="#addProxy" class="btn btn-primary">Add Proxy</a>

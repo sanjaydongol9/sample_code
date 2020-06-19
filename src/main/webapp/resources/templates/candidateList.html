@@ -1,0 +1,66 @@
+<div class="">
+    <form>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </div>
+	<input type="text" class="form-control ng-pristine ng-valid ng-touched" placeholder="Search Candidate" ng-model="search.$" />
+	
+	
+ </div>
+                </div>
+            </div>
+            </div>
+    </form>
+
+<div ng-init="getAllCandidate()">
+
+   <!-- <select ng-model="repoSortOrder">
+    <option value="+firstName">Name</option>
+    <option value="-stargazers_count">Stars</option>
+    <option value="+language">Language</option>
+  </select>  -->
+</div>
+
+<table class= "table table-hover">
+  <thead>
+    <tr>
+      <!-- <th>Id</th>
+      <th>Created Date</th> -->
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Technology</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Skype Id</th>           
+     
+      
+            
+             </tr>
+  </thead>
+  
+  <tbody>
+    <tr ng-repeat="candidate in candidates | orderBy:candidateSortOrder | filter:search">  
+      <td>{{candidate.firstName}}</td>
+      <td>{{candidate.middleName}}</td> 
+      <td>{{candidate.lastName}}</td>
+      <td>{{candidate.gender}}</td>
+      <td>{{candidate.technology.name}}</td>
+      <td>{{candidate.phone.areaCode+"-"+candidate.phone.prefixValue+"-"+candidate.phone.number}}</td>
+      <td>{{candidate.email}}</td>
+      <td>{{candidate.skypeId}}</td>
+      
+     
+    <td><a href="#candidate/edit/{{candidate.email}}">Edit</a> | <a
+					href="#candidate/delete/{{candidate.email}}">Delete</a> <!-- | <a
+					href="" ng-really-message="Are you sure to disable this user?"
+					ng-really-click="delete_candidate(candidate.email)" item="candidate">Disable</a></td> -->
+    </tr>
+  </tbody>
+</table>
+</div>
