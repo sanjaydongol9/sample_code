@@ -9,7 +9,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 
 	<properties>
-		<springframework.version>4.2.4.RELEASE</springframework.version>
+		<springframework.version>5.2.7.RELEASE</springframework.version>
 	</properties>
 
 	<dependencies>
