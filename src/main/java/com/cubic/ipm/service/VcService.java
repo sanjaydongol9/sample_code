@@ -6,9 +6,6 @@ import com.cubic.ipm.model.User;
 
 import java.util.List;
 
-/**
- * Created by abc on 3/16/16.
- */
 public interface VcService {
     List<User> findAll(Role role);
 
